@@ -5,7 +5,7 @@ import db from "./config/db-config.js";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 const app = express();
 app.use(
