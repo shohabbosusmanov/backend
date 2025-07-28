@@ -11,7 +11,7 @@ export default class AuthController {
             console.log(result.token);
 
             res.cookie("token", result.token, {
-                sameSite: "lax",
+                sameSite: "none",
                 httpOnly: true,
                 maxAge: 2 * 3600 * 1000,
                 path: "/",
@@ -32,7 +32,7 @@ export default class AuthController {
             console.log(result.token);
 
             res.cookie("token", result.token, {
-                sameSite: "lax",
+                sameSite: "none",
                 httpOnly: true,
                 maxAge: 2 * 3600 * 1000,
                 path: "/",
