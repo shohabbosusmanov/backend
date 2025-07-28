@@ -8,7 +8,6 @@ export default class AuthController {
     async register(req, res) {
         try {
             const result = await this.authService.register(req.body);
-            console.log(result.token);
 
             res.cookie("token", result.token, {
                 sameSite: "none",
@@ -29,7 +28,8 @@ export default class AuthController {
                 req.body.password
             );
 
-            console.log(result.token);
+            console.log("Token:", result.token);
+            console.log("Headers before cookie:", req.headers);
 
             res.cookie("token", result.token, {
                 sameSite: "none",
@@ -38,6 +38,8 @@ export default class AuthController {
                 path: "/",
                 secure: true,
             });
+
+            console.log("Cookie set, headers:", res.getHeaders());
 
             res.status(200).json(result);
         } catch (error) {

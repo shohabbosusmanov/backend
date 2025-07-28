@@ -10,10 +10,13 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 app.use(
     cors({
-        origin: "https://shopcoreact.netlify.app",
+        origin: ["https://shopcoreact.netlify.app"],
         credentials: true,
+        methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+        allowedHeaders: ["Content-Type", "Authorization"],
     })
 );
+app.options("*", cors());
 app.use(cookieParser());
 app.use(express.json());
 app.use("/api", Routes());
