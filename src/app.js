@@ -16,7 +16,7 @@ app.use(
         allowedHeaders: ["Content-Type", "Authorization"],
     })
 );
-app.options("*", (req, res) => {
+app.options("/*", (req, res) => {
     res.header("Access-Control-Allow-Credentials", "true");
     res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
     res.header(
