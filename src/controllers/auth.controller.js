@@ -10,11 +10,10 @@ export default class AuthController {
             const result = await this.authService.register(req.body);
 
             res.cookie("token", result.token, {
-                sameSite: "none",
+                sameSite: "lax",
                 httpOnly: true,
                 maxAge: 2 * 3600 * 1000,
                 path: "/",
-                secure: true,
             });
             res.status(201).json(result);
         } catch (error) {
@@ -33,7 +32,7 @@ export default class AuthController {
 
             res.cookie("token", result.token, {
                 sameSite: "lax",
-                httpOnly: false,
+                httpOnly: true,
                 maxAge: 2 * 3600 * 1000,
                 path: "/",
             });
