@@ -8,6 +8,8 @@ export default class AuthController {
     async register(req, res) {
         try {
             const result = await this.authService.register(req.body);
+            console.log(result.token);
+
             res.cookie("token", result.token, {
                 sameSite: "none",
                 httpOnly: true,
@@ -26,6 +28,8 @@ export default class AuthController {
                 req.body.email,
                 req.body.password
             );
+
+            console.log(result.token);
 
             res.cookie("token", result.token, {
                 sameSite: "none",
