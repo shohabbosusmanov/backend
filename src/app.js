@@ -4,7 +4,6 @@ import Routes from "./routes/routes.js";
 import db from "./config/db-config.js";
 import cors from "cors";
 import cookieParser from "cookie-parser";
-import AuthRouter from "./routes/auth.route.js";
 
 const PORT = process.env.PORT || 3000;
 
@@ -17,10 +16,9 @@ app.use(
         allowedHeaders: ["Content-Type", "Authorization"],
     })
 );
-app.options("*", cors());
 app.use(cookieParser());
 app.use(express.json());
-app.use("/api", AuthRouter);
+app.use("/api", Routes());
 
 const initApp = async () => {
     try {
