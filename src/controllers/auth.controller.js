@@ -33,7 +33,7 @@ export default class AuthController {
 
             res.cookie("token", result.token, {
                 sameSite: "none",
-                httpOnly: true,
+                httpOnly: false,
                 maxAge: 2 * 3600 * 1000,
                 path: "/",
                 secure: true,
