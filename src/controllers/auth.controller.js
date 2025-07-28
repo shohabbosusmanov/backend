@@ -12,6 +12,8 @@ export default class AuthController {
                 sameSite: "lax",
                 httpOnly: true,
                 maxAge: 2 * 3600 * 1000,
+                path: "/",
+                secure: false,
             });
             res.status(201).json(result);
         } catch (error) {
@@ -29,6 +31,8 @@ export default class AuthController {
                 sameSite: "lax",
                 httpOnly: true,
                 maxAge: 2 * 3600 * 1000,
+                path: "/",
+                secure: false,
             });
 
             res.status(200).json(result);
