@@ -10,21 +10,15 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 app.use(
     cors({
-        origin: ["https://shopcoreact.netlify.app"],
+        origin: "https://shopcoreact.netlify.app",
         credentials: true,
         methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-        allowedHeaders: ["Content-Type", "Authorization"],
+        allowedHeaders: ["Content-Type", "Authorization", "Cookie"],
+        exposedHeaders: ["Set-Cookie"],
+        preflightContinue: false,
+        optionsSuccessStatus: 200,
     })
 );
-app.options("/*", (req, res) => {
-    res.header("Access-Control-Allow-Credentials", "true");
-    res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
-    res.header(
-        "Access-Control-Allow-Headers",
-        "Content-Type, Authorization, Content-Length, X-Requested-With, Cookie"
-    );
-    res.sendStatus(200);
-});
 
 app.use(cookieParser());
 app.use(express.json());
