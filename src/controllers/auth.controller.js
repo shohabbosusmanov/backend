@@ -32,11 +32,10 @@ export default class AuthController {
             console.log("Headers before cookie:", req.headers);
 
             res.cookie("token", result.token, {
-                sameSite: "none",
+                sameSite: "lax",
                 httpOnly: false,
                 maxAge: 2 * 3600 * 1000,
                 path: "/",
-                secure: true,
             });
 
             console.log("Cookie set, headers:", res.getHeaders());
