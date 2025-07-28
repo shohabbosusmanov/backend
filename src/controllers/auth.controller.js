@@ -9,7 +9,7 @@ export default class AuthController {
         try {
             const result = await this.authService.register(req.body);
             res.cookie("token", result.token, {
-                sameSite: "lax",
+                sameSite: "none",
                 httpOnly: true,
                 maxAge: 2 * 3600 * 1000,
                 path: "/",
@@ -28,7 +28,7 @@ export default class AuthController {
             );
 
             res.cookie("token", result.token, {
-                sameSite: "lax",
+                sameSite: "none",
                 httpOnly: true,
                 maxAge: 2 * 3600 * 1000,
                 path: "/",
