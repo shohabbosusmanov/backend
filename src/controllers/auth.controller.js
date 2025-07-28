@@ -13,7 +13,7 @@ export default class AuthController {
                 httpOnly: true,
                 maxAge: 2 * 3600 * 1000,
                 path: "/",
-                secure: false,
+                secure: true,
             });
             res.status(201).json(result);
         } catch (error) {
@@ -32,7 +32,7 @@ export default class AuthController {
                 httpOnly: true,
                 maxAge: 2 * 3600 * 1000,
                 path: "/",
-                secure: false,
+                secure: true,
             });
 
             res.status(200).json(result);
